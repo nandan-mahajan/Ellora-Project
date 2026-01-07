@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            font-size: 14px; /* Base font size: 14px */
+            font-size: 13px; /* Base font size: 14px */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             min-height: 100vh;
@@ -37,7 +37,7 @@
         .header {
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             color: white;
-            padding: 30px 40px;
+            padding: 20px 30px;
             position: relative;
         }
 
@@ -45,32 +45,48 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
-        /* Left Logo Placeholder */
+        /* Left Logo - Natural Blending */
         .logo-left {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* Right Logo Placeholder */
+        .logo-left img {
+            filter: brightness(1) contrast(1.1);
+        }
+
+        /* Right Logo - Natural Blending */
         .logo-right {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-right img {
+            filter: brightness(1) contrast(1.1);
         }
 
         .header h1 {
-            font-size: 32px; /* Main heading size: 32px (2em) */
+            font-size: 26px; /* Reduced for compactness */
             font-weight: 700;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .header p {
@@ -81,11 +97,11 @@
 
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 3px;
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 12px;
         }
 
         .progress-fill {
@@ -96,44 +112,44 @@
         }
 
         .form-content {
-            padding: 30px 40px;
+            padding: 20px 30px;
         }
 
         .section {
-            margin-bottom: 35px;
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
+            margin-bottom: 25px;
+            border-left: 3px solid #667eea;
+            padding-left: 15px;
         }
 
         .section-title {
-            font-size: 22px; /* Section titles: 22px (1.375em) */
+            font-size: 18px; /* Reduced for compactness */
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
         }
 
         .section-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: #667eea;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-right: 12px;
+            margin-right: 10px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         /* Two-column grid layout */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Left and Right sections */
-            gap: 20px 30px;
-            margin-bottom: 20px;
+            gap: 12px 20px;
+            margin-bottom: 12px;
         }
 
         .form-group {
@@ -159,7 +175,7 @@
         textarea,
         select {
             width: 100%;
-            padding: 10px 12px;
+            padding: 6px 8px;
             border: 2px solid #e2e8f0;
             border-radius: 6px;
             font-size: 14px; /* Input fields: 14px */
@@ -178,17 +194,17 @@
         }
 
         textarea {
-            min-height: 70px;
+            min-height: 60px;
             resize: vertical;
         }
 
         .checkbox-group {
             display: flex;
             align-items: center;
-            padding: 8px 10px;
+            padding: 6px 8px;
             background: #f7fafc;
             border-radius: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .checkbox-group input[type="checkbox"] {
@@ -207,7 +223,7 @@
 
         .submit-section {
             background: #f7fafc;
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
             text-align: center;
         }
@@ -294,7 +310,7 @@
             font-size: 26px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-family: 'Inter', sans-serif;
         }
 
