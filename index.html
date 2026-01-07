@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ellora Group - Comprehensive Discovery Form</title>
+    <title>Comprehensive Discovery & Requirement Assessment</title>
+    <!-- Import Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -12,14 +17,16 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; /* Base font size: 14px */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
@@ -30,32 +37,89 @@
         .header {
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             color: white;
-            padding: 40px;
+            padding: 30px 40px;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        /* Left Logo Placeholder */
+        .logo-left {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        /* Right Logo Placeholder */
+        .logo-right {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
             text-align: center;
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 32px; /* Main heading size: 32px (2em) */
+            font-weight: 700;
+            text-align: center;
             margin-bottom: 10px;
         }
 
         .header p {
-            font-size: 1.1em;
+            font-size: 14px;
             opacity: 0.9;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+            width: 0%;
+            transition: width 0.3s;
         }
 
         .form-content {
-            padding: 40px;
+            padding: 30px 40px;
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             border-left: 4px solid #667eea;
             padding-left: 20px;
         }
 
         .section-title {
-            font-size: 1.8em;
+            font-size: 22px; /* Section titles: 22px (1.375em) */
+            font-weight: 600;
             color: #2d3748;
             margin-bottom: 20px;
             display: flex;
@@ -63,27 +127,30 @@
         }
 
         .section-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: #667eea;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-right: 15px;
-            font-weight: bold;
+            margin-right: 12px;
+            font-weight: 700;
+            font-size: 16px;
         }
 
+        /* Two-column grid layout */
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr; /* Left and Right sections */
+            gap: 20px 30px;
             margin-bottom: 20px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group.full-width {
@@ -94,8 +161,8 @@
             display: block;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 8px;
-            font-size: 0.95em;
+            margin-bottom: 6px;
+            font-size: 13px; /* Labels: 13px (0.8125em) */
         }
 
         input[type="text"],
@@ -104,12 +171,12 @@
         textarea,
         select {
             width: 100%;
-            padding: 12px;
+            padding: 10px 12px;
             border: 2px solid #e2e8f0;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 14px; /* Input fields: 14px */
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s;
-            font-family: inherit;
         }
 
         input[type="text"]:focus,
@@ -123,22 +190,22 @@
         }
 
         textarea {
-            min-height: 80px;
+            min-height: 70px;
             resize: vertical;
         }
 
         .checkbox-group {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 8px 10px;
             background: #f7fafc;
             border-radius: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .checkbox-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             margin-right: 10px;
             cursor: pointer;
         }
@@ -147,11 +214,12 @@
             margin: 0;
             cursor: pointer;
             font-weight: 500;
+            font-size: 13px;
         }
 
         .submit-section {
             background: #f7fafc;
-            padding: 30px;
+            padding: 25px;
             border-radius: 8px;
             text-align: center;
         }
@@ -160,9 +228,10 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 15px 50px;
-            font-size: 1.1em;
+            padding: 14px 45px;
+            font-size: 15px;
             font-weight: 600;
+            font-family: 'Inter', sans-serif;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
@@ -180,56 +249,112 @@
             transform: none;
         }
 
-        .status-message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 6px;
+        /* Success Popup Modal */
+        .modal-overlay {
             display: none;
-        }
-
-        .status-message.success {
-            background: #c6f6d5;
-            color: #22543d;
-            border: 1px solid #9ae6b4;
-        }
-
-        .status-message.error {
-            background: #fed7d7;
-            color: #742a2a;
-            border: 1px solid #fc8181;
-        }
-
-        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 6px;
-            background: #e2e8f0;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
-
-        .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            width: 0%;
-            transition: width 0.3s;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+            backdrop-filter: blur(4px);
         }
 
-        @media (max-width: 768px) {
-            .form-content {
-                padding: 20px;
-            }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px;
+            text-align: center;
+            animation: modalSlideIn 0.3s ease-out;
+        }
 
-            .header {
-                padding: 30px 20px;
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+        }
+
+        .modal h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal p {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 968px) {
+            .form-grid {
+                grid-template-columns: 1fr; /* Stack on smaller screens */
             }
 
             .header h1 {
-                font-size: 1.8em;
+                font-size: 24px;
             }
 
-            .form-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 18px;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .form-content {
+                padding: 20px;
             }
         }
     </style>
@@ -237,8 +362,14 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Ellora Group</h1>
-            <p>Comprehensive Discovery & Requirement Assessment</p>
+            <div class="header-top">
+                <!-- Left Logo Placeholder -->
+                <div class="logo-left"><img src="Ellora_EPC_final_logo.png-white-colur.-blue-e1671175141510.png" alt="Left Logo" style="width: 100%; height: 100%; object-fit: contain;"></div>
+                <!-- Right Logo Placeholder -->
+                <div class="logo-right"><img src="Full Logo_Vertical.png" alt="Left Logo" style="width: 100%; height: 100%; object-fit: contain;"></div>
+            </div>
+            <h1>Comprehensive Discovery & Requirement Assessment</h1>
+            <p>Please complete this form to help us understand your requirements</p>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
@@ -752,177 +883,193 @@
                     </h2>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Email and Calendar Platform</label>
-                            <input type="text" name="email_platform" placeholder="e.g., Google Workspace, Outlook">
+                            <label>Primary Email Platform</label>
+                            <input type="text" name="email_platform" placeholder="e.g., Gmail, Outlook">
                         </div>
                         <div class="form-group">
-                            <label>File Storage & Document Sharing</label>
+                            <label>File Storage & Sharing</label>
                             <input type="text" name="file_storage" placeholder="e.g., Google Drive, OneDrive">
                         </div>
                         <div class="form-group">
-                            <label>Internal Communication Tools</label>
-                            <input type="text" name="communication_tools" placeholder="e.g., Slack, WhatsApp, Teams">
+                            <label>Communication Platform</label>
+                            <input type="text" name="communication_platform" placeholder="e.g., Slack, Teams, WhatsApp">
                         </div>
                         <div class="form-group">
                             <label>Video Conferencing Tools</label>
-                            <input type="text" name="video_conferencing" placeholder="e.g., Zoom, Google Meet, Teams">
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Security & Access Control Practices</label>
-                            <textarea name="security_practices" placeholder="Describe security measures, access controls..."></textarea>
+                            <input type="text" name="video_tools" placeholder="e.g., Zoom, Google Meet">
                         </div>
                     </div>
                 </div>
 
-                <!-- Section H: Tally Usage -->
+                <!-- Section H: Accounting & Financial Systems -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">H</span>
-                        Tally Usage & Project/Cost Centre Alignment
+                        Accounting & Financial Systems
                     </h2>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Scope of Tally Usage</label>
-                            <select name="tally_scope">
+                            <label>Primary Accounting Software</label>
+                            <input type="text" name="accounting_software" placeholder="e.g., Tally, SAP, QuickBooks">
+                        </div>
+                        <div class="form-group">
+                            <label>Tally Versions in Use</label>
+                            <input type="text" name="tally_version" placeholder="e.g., Tally Prime, Tally ERP 9">
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Tally Installations</label>
+                            <input type="number" name="tally_installations" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group">
+                            <label>Banking Integration Status</label>
+                            <select name="banking_integration">
                                 <option value="">Select...</option>
-                                <option value="statutory">Statutory Only</option>
-                                <option value="full">Full Accounting</option>
+                                <option value="yes">Yes, Integrated</option>
+                                <option value="manual">Manual Import</option>
+                                <option value="no">No Integration</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>GST Filing Status</label>
+                            <select name="gst_filing">
+                                <option value="">Select...</option>
+                                <option value="compliant">Fully Compliant</option>
+                                <option value="partial">Partially Compliant</option>
+                                <option value="issues">Has Issues</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>TDS Compliance Status</label>
+                            <select name="tds_compliance">
+                                <option value="">Select...</option>
+                                <option value="compliant">Fully Compliant</option>
+                                <option value="partial">Partially Compliant</option>
+                                <option value="issues">Has Issues</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Chart of Accounts Structure</label>
+                            <textarea name="coa_structure" placeholder="Describe your chart of accounts setup..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Month-End Close Timeline</label>
+                            <textarea name="month_end_timeline" placeholder="How many days after month-end are books closed?"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section I: Integration & Data Flow -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">I</span>
+                        Integration & Data Flow
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Systems Currently Integrated</label>
+                            <textarea name="integrated_systems" placeholder="List systems that are integrated with each other..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Primary Integration Method</label>
+                            <select name="integration_method">
+                                <option value="">Select...</option>
+                                <option value="api">API-based</option>
+                                <option value="file">File-based (Excel, CSV)</option>
+                                <option value="manual">Manual Entry</option>
                                 <option value="mixed">Mixed</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Project-wise Tagging & Cost Centres</label>
-                            <select name="tally_project_tagging">
+                            <label>Data Import/Export Frequency</label>
+                            <select name="data_frequency">
                                 <option value="">Select...</option>
-                                <option value="yes">Yes, Fully Implemented</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
+                                <option value="realtime">Real-time</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Consistency of Project Codes Across Systems</label>
-                            <select name="project_code_consistency">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes, Consistent</option>
-                                <option value="partial">Partially Consistent</option>
-                                <option value="no">Not Consistent</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Ability to Generate Project P&L from Tally</label>
-                            <select name="tally_project_pl">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="manual">Manual/Workaround</option>
-                                <option value="no">No</option>
-                            </select>
+                            <label>Master Data Management Approach</label>
+                            <input type="text" name="mdm_approach" placeholder="e.g., Centralized, Distributed, None">
                         </div>
                         <div class="form-group full-width">
-                            <label>Tally Features Actively Used</label>
-                            <textarea name="tally_features" placeholder="e.g., Cost centres, voucher types, inventory..."></textarea>
+                            <label>Data Quality Issues Faced</label>
+                            <textarea name="data_quality_issues" placeholder="Describe common data quality problems..."></textarea>
                         </div>
                         <div class="form-group full-width">
-                            <label>Key Challenges in Project-wise Reporting from Tally</label>
-                            <textarea name="tally_challenges" placeholder="Describe challenges faced..."></textarea>
+                            <label>Data Reconciliation Process</label>
+                            <textarea name="data_reconciliation" placeholder="How do you reconcile data between systems?"></textarea>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section I: Finance Team -->
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-icon">I</span>
-                        Finance & Accounts Team and MIS Ownership
-                    </h2>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Finance & Accounts Team Size</label>
-                            <input type="number" name="finance_team_size" placeholder="e.g., 5">
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Activity-wise Role Ownership within Finance</label>
-                            <textarea name="finance_roles" placeholder="e.g., AP: 2 persons, AR: 1 person, Reconciliation: 1 person..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Dedicated MIS/Reporting Ownership</label>
-                            <select name="mis_ownership">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes, Dedicated Resource</option>
-                                <option value="shared">Shared Responsibility</option>
-                                <option value="no">No Dedicated Resource</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>MIS Review and Sign-off Responsibility</label>
-                            <input type="text" name="mis_signoff" placeholder="e.g., CFO, Finance Manager">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section J: Previous ERP Attempt -->
+                <!-- Section J: Pain Points & Challenges -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">J</span>
-                        Previous Strategic ERP Attempt (if any)
+                        Pain Points & Challenges
                     </h2>
                     <div class="form-grid">
                         <div class="form-group full-width">
-                            <label>ERP Modules Attempted</label>
-                            <textarea name="erp_modules" placeholder="e.g., Finance, Procurement, Project Management..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Extent of ERP Implementation</label>
-                            <select name="erp_extent">
-                                <option value="">Select...</option>
-                                <option value="full">Full Implementation</option>
-                                <option value="partial">Partial Implementation</option>
-                                <option value="pilot">Pilot Only</option>
-                                <option value="na">Not Applicable</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Modules Still in Use Today</label>
-                            <input type="text" name="erp_active_modules" placeholder="e.g., Finance module only">
+                            <label>Top 3 Current Pain Points</label>
+                            <textarea name="top_pain_points" placeholder="List your top 3 operational or system-related challenges..." style="min-height: 90px;"></textarea>
                         </div>
                         <div class="form-group full-width">
-                            <label>Key Reasons for ERP Challenges or Failure</label>
-                            <textarea name="erp_failure_reasons" placeholder="Describe reasons if applicable..."></textarea>
+                            <label>Manual Processes Consuming Most Time</label>
+                            <textarea name="manual_processes" placeholder="Which processes are most time-consuming and manual?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Reports That Take Longest to Prepare</label>
+                            <textarea name="time_consuming_reports" placeholder="Which reports/MIS take the most effort?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Areas Where You Lack Visibility</label>
+                            <textarea name="lack_visibility" placeholder="Where do you wish you had better insights or data?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Collaboration & Communication Challenges</label>
+                            <textarea name="collaboration_challenges" placeholder="Issues with information sharing between teams/sites..."></textarea>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section K: IT Ownership -->
+                <!-- Section K: Future Vision & Priorities -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">K</span>
-                        IT Ownership & Implementation Capability
+                        Future Vision & Priorities
                     </h2>
                     <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Business Goals for Next 12-24 Months</label>
+                            <textarea name="business_goals" placeholder="What are your growth targets and strategic priorities?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Desired Process Improvements</label>
+                            <textarea name="desired_improvements" placeholder="What processes do you want to improve or automate?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Technology Investment Priorities</label>
+                            <textarea name="tech_priorities" placeholder="What technology areas are you planning to invest in?"></textarea>
+                        </div>
                         <div class="form-group">
-                            <label>In-house IT Team Availability</label>
-                            <select name="it_team">
+                            <label>Expected Timeline for Solution Implementation</label>
+                            <select name="implementation_timeline">
                                 <option value="">Select...</option>
-                                <option value="yes">Yes, Dedicated Team</option>
-                                <option value="partial">Limited Team</option>
-                                <option value="no">No In-house Team</option>
+                                <option value="immediate">Immediate (1-3 months)</option>
+                                <option value="short">Short-term (3-6 months)</option>
+                                <option value="medium">Medium-term (6-12 months)</option>
+                                <option value="long">Long-term (12+ months)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Day-to-day IT Support Model</label>
-                            <input type="text" name="it_support" placeholder="e.g., In-house, Outsourced, Hybrid">
+                            <label>Budget Range for Technology Investment</label>
+                            <input type="text" name="budget_range" placeholder="e.g., 10-20 Lakhs">
                         </div>
-                        <div class="form-group">
-                            <label>Internal SPOC for BI/ERP Initiatives</label>
-                            <input type="text" name="it_spoc" placeholder="e.g., IT Manager, CTO">
-                        </div>
-                        <div class="form-group">
-                            <label>Preferred Implementation Approach</label>
-                            <select name="implementation_approach">
-                                <option value="">Select...</option>
-                                <option value="phased">Phased Rollout</option>
-                                <option value="bigbang">Big Bang</option>
-                                <option value="pilot">Pilot First</option>
-                            </select>
+                        <div class="form-group full-width">
+                            <label>Success Metrics & KPIs You Care About</label>
+                            <textarea name="success_metrics" placeholder="How will you measure success of new systems/processes?"></textarea>
                         </div>
                     </div>
                 </div>
@@ -1009,17 +1156,25 @@
                     </h2>
                     <div class="form-group full-width">
                         <label>Any Other Comments, Requirements or Concerns</label>
-                        <textarea name="additional_comments" placeholder="Please share any additional information that would be helpful..." style="min-height: 120px;"></textarea>
+                        <textarea name="additional_comments" placeholder="Please share any additional information that would be helpful..." style="min-height: 100px;"></textarea>
                     </div>
                 </div>
 
                 <!-- Submit Section -->
                 <div class="submit-section">
                     <button type="submit" class="btn-submit" id="submitBtn">Submit Discovery Form</button>
-                    <div class="status-message" id="statusMessage"></div>
                 </div>
             </form>
         </div>
+    </div>
+
+    <!-- Success Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="successModal">
+        <div class="modal-icon">✓</div>
+        <h2>Response Recorded Successfully!</h2>
+        <p>Thank you for completing the comprehensive discovery assessment. Your information has been successfully recorded in our system.</p>
+        <button class="modal-btn" id="modalCloseBtn">Close</button>
     </div>
 
     <script>
@@ -1029,15 +1184,16 @@
         // ============================================
         const GOOGLE_SHEETS_CONFIG = {
             scriptURL: 'https://script.google.com/macros/s/AKfycbws9grRPqYc6_0o2X-9hvCI04xePGQGeWi6vQZN8RHtWatsNs-Se7oiCdAqPM7FP92M/exec',
-            sheetName: 'Ellora Discovery Data',  // Name of your sheet tab
-            // Example: scriptURL: 'https://script.google.com/macros/s/ABC123.../exec'
+            sheetName: 'Ellora Discovery Data',
         };
         // ============================================
 
         const form = document.getElementById('discoveryForm');
         const submitBtn = document.getElementById('submitBtn');
-        const statusMessage = document.getElementById('statusMessage');
         const progressBar = document.getElementById('progressBar');
+        const successModal = document.getElementById('successModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
 
         // Progress tracking
         function updateProgress() {
@@ -1061,13 +1217,31 @@
             input.addEventListener('input', updateProgress);
         });
 
+        // Show modal function
+        function showSuccessModal() {
+            modalOverlay.style.display = 'block';
+            successModal.style.display = 'block';
+        }
+
+        // Hide modal function
+        function hideSuccessModal() {
+            modalOverlay.style.display = 'none';
+            successModal.style.display = 'none';
+        }
+
+        // Close modal on button click
+        modalCloseBtn.addEventListener('click', hideSuccessModal);
+
+        // Close modal on overlay click
+        modalOverlay.addEventListener('click', hideSuccessModal);
+
         // Form submission
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Validate script URL is configured
             if (GOOGLE_SHEETS_CONFIG.scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
-                showMessage('Please configure your Google Sheets script URL in the code.', 'error');
+                alert('Please configure your Google Sheets script URL in the code.');
                 return;
             }
 
@@ -1105,36 +1279,24 @@
                     body: JSON.stringify(data)
                 });
 
-                // Note: With no-cors mode, we can't read the response
-                // Assume success if no error was thrown
-                showMessage('Form submitted successfully! Thank you for completing the discovery assessment.', 'success');
+                // Show success modal popup
+                showSuccessModal();
+                
+                // Reset form
                 form.reset();
                 updateProgress();
                 
-                // Optional: Scroll to top to see success message
+                // Scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
             } catch (error) {
                 console.error('Error:', error);
-                showMessage('There was an error submitting the form. Please try again or contact support.', 'error');
+                alert('There was an error submitting the form. Please try again or contact support.');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Discovery Form';
             }
         });
-
-        function showMessage(message, type) {
-            statusMessage.textContent = message;
-            statusMessage.className = 'status-message ' + type;
-            statusMessage.style.display = 'block';
-            
-            // Hide message after 8 seconds for success, keep error visible
-            if (type === 'success') {
-                setTimeout(() => {
-                    statusMessage.style.display = 'none';
-                }, 8000);
-            }
-        }
 
         // Initialize progress bar
         updateProgress();
