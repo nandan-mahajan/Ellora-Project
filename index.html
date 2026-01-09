@@ -1764,7 +1764,7 @@
                 const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptURL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'text/plain',
                     },
                     body: JSON.stringify(data)
                 });
@@ -1795,3 +1795,4 @@
     </script>
 </body>
 </html>
+
