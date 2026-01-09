@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            font-size: 13px; /* Base font size: 14px */
+            font-size: 14px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             min-height: 100vh;
@@ -48,7 +48,6 @@
             margin-bottom: 12px;
         }
 
-        /* Left Logo - Natural Blending */
         .logo-left {
             width: 70px;
             height: 70px;
@@ -62,10 +61,12 @@
         }
 
         .logo-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             filter: brightness(1) contrast(1.1);
         }
 
-        /* Right Logo - Natural Blending */
         .logo-right {
             width: 70px;
             height: 70px;
@@ -79,18 +80,21 @@
         }
 
         .logo-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             filter: brightness(1) contrast(1.1);
         }
 
         .header h1 {
-            font-size: 26px; /* Reduced for compactness */
+            font-size: 26px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 6px;
         }
 
         .header p {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
             text-align: center;
         }
@@ -122,7 +126,7 @@
         }
 
         .section-title {
-            font-size: 18px; /* Reduced for compactness */
+            font-size: 18px;
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 12px;
@@ -144,12 +148,28 @@
             font-size: 14px;
         }
 
-        /* Two-column grid layout */
+        /* TWO-COLUMN GRID LAYOUT */
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Left and Right sections */
+            grid-template-columns: 1fr 1fr;
             gap: 12px 20px;
             margin-bottom: 12px;
+        }
+
+        /* SUB-FIELDS GRID (for Section B) - Stacked vertically within each column */
+        .sub-fields-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 8px;
+            border-left: 3px solid #94a3b8;
+        }
+        
+        .sub-fields-grid .form-group {
+            margin-bottom: 0;
         }
 
         .form-group {
@@ -161,12 +181,26 @@
             grid-column: 1 / -1;
         }
 
+        /* Section B field container */
+        .field-with-subfields {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         label {
             display: block;
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 6px;
-            font-size: 13px; /* Labels: 13px (0.8125em) */
+            font-size: 13px;
+        }
+
+        .sub-field-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 4px;
         }
 
         input[type="text"],
@@ -175,10 +209,10 @@
         textarea,
         select {
             width: 100%;
-            padding: 6px 8px;
+            padding: 8px 10px;
             border: 2px solid #e2e8f0;
             border-radius: 6px;
-            font-size: 14px; /* Input fields: 14px */
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s;
         }
@@ -191,6 +225,23 @@
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Style dropdown placeholders grey */
+        select {
+            color: #999; /* grey for placeholder */
+        }
+
+        select.has-selection {
+            color: #2d3748; /* dark when option is selected */
+        }
+
+        select option[disabled] {
+            color: #999;
+        }
+
+        select option:not([disabled]) {
+            color: #2d3748;
         }
 
         textarea {
@@ -219,6 +270,42 @@
             cursor: pointer;
             font-weight: 500;
             font-size: 13px;
+        }
+
+        /* FILE UPLOAD STYLING */
+        .file-upload-container {
+            margin-top: 8px;
+            padding: 10px;
+            background: #f0f4ff;
+            border-radius: 6px;
+            border: 1px dashed #667eea;
+            display: none;
+        }
+
+        .file-upload-container.active {
+            display: block;
+        }
+
+        .file-upload-label {
+            font-size: 12px;
+            color: #4a5568;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        input[type="file"] {
+            font-size: 12px;
+            padding: 6px;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            background: white;
+            width: 100%;
+        }
+
+        .file-info {
+            font-size: 11px;
+            color: #718096;
+            margin-top: 4px;
         }
 
         .submit-section {
@@ -310,7 +397,7 @@
             font-size: 26px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-family: 'Inter', sans-serif;
         }
 
@@ -342,15 +429,19 @@
 
         @media (max-width: 968px) {
             .form-grid {
-                grid-template-columns: 1fr; /* Stack on smaller screens */
+                grid-template-columns: 1fr;
+            }
+
+            .sub-fields-grid {
+                grid-template-columns: 1fr;
             }
 
             .header h1 {
-                font-size: 24px;
+                font-size: 20px;
             }
 
             .section-title {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             body {
@@ -358,8 +449,20 @@
             }
 
             .form-content {
-                padding: 20px;
+                padding: 15px 20px;
             }
+        }
+
+        /* Section Note Styling */
+        .section-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 15px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #856404;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -367,10 +470,12 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <!-- Left Logo Placeholder -->
-                <div class="logo-left"><img src="Ellora.jfif" alt="Left Logo" style="width: 100%; height: 100%; object-fit: contain;"></div>
-                <!-- Right Logo Placeholder -->
-                <div class="logo-right"><img src="DC.png" alt="Left Logo" style="width: 100%; height: 100%;"></div>
+                <div class="logo-left">
+                    <img src="Ellora.jfif" alt="Left Logo">
+                </div>
+                <div class="logo-right">
+                    <img src="Full Logo_Vertical.jpg" alt="Right Logo">
+                </div>
             </div>
             <h1>Comprehensive Discovery & Requirement Assessment</h1>
             <p>Please complete this form to help us understand your requirements</p>
@@ -392,32 +497,27 @@
                             <label>Entities in Scope</label>
                             <div class="checkbox-group">
                                 <input type="checkbox" name="entity_epc" id="entity_epc">
-                                <label for="entity_epc">Ellora EPC</label>
+                                ELLORA EPC PRIVATE LIMITED
                             </div>
                             <div class="checkbox-group">
                                 <input type="checkbox" name="entity_prefab" id="entity_prefab">
-                                <label for="entity_prefab">Prefab</label>
+                            ELR INDUSTRIES PRIVATE LIMITED
                             </div>
                             <div class="checkbox-group">
                                 <input type="checkbox" name="entity_infotech" id="entity_infotech">
-                                <label for="entity_infotech">Infotech</label>
+                            ELLORA LIFESPACES PRIVATE LIMITED
                             </div>
                             <div class="checkbox-group">
                                 <input type="checkbox" name="entity_foundation" id="entity_foundation">
-                                <label for="entity_foundation">Foundation</label>
+                            ELLORA INFOTECH PRIVATE LIMITED
                             </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" name="entity_neev" id="entity_neev">
-                                <label for="entity_neev">Neev Ellora Realty</label>
-                            </div>
-                            <textarea name="entity_others" placeholder="Other entities..."></textarea>
                         </div>
                         <div class="form-group">
                             <label>FY Revenue Range</label>
                             <input type="text" name="revenue_range" placeholder="e.g., 100-500 Cr">
                         </div>
                         <div class="form-group">
-                            <label>Exact Revenue Value (if known)</label>
+                            <label>Exact Revenue Value (Optional)</label>
                             <input type="text" name="revenue_exact" placeholder="e.g., 250 Cr">
                         </div>
                         <div class="form-group">
@@ -437,283 +537,543 @@
                             <input type="number" name="active_locations" placeholder="e.g., 8">
                         </div>
                         <div class="form-group">
-                            <label>Total Employee Strength</label>
+                            <label>Number of Employees</label>
                             <input type="number" name="total_employees" placeholder="e.g., 500">
                         </div>
                         <div class="form-group">
                             <label>Site vs HO Split</label>
                             <input type="text" name="site_ho_split" placeholder="e.g., Site: 400, HO: 100">
                         </div>
-                        <div class="form-group full-width">
-                            <label>Regions Served</label>
-                            <textarea name="regions_served" placeholder="e.g., North India, Maharashtra, Gujarat..."></textarea>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Section B: Current Reporting -->
+                <!-- Section B: Current Reporting (WITH SUB-FIELDS) -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">B</span>
                         Current Reporting Pack & Review Mechanism
                     </h2>
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label>Standard MIS/Reporting Pack Exists</label>
-                            <select name="mis_exists">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Tender Pipeline & Status Reporting</label>
-                            <select name="tender_reporting">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Tender Win/Loss Analysis</label>
-                            <select name="tender_analysis">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Project Progress Summary Reporting</label>
-                            <select name="progress_reporting">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Project Cost Tracking</label>
-                            <select name="cost_tracking">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Monthly Project-Level Profitability</label>
-                            <select name="profitability_reporting">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Cashflow Statement/Forecast</label>
-                            <select name="cashflow_reporting">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
+                        <!-- Field: Sales/Billing Summary -->
+                        <div class="field-with-subfields">
                             <label>Sales/Billing Summary</label>
-                            <select name="billing_summary">
-                                <option value="">Select...</option>
+                            <select name="billing_summary" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="billing_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="billing_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="billing_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Collections Summary</label>
-                            <select name="collections_summary">
-                                <option value="">Select...</option>
+
+                        <!-- Field: Collections Received & AR Ageing -->
+                        <div class="field-with-subfields">
+                            <label>Collections, Receivables & AR Ageing</label>
+                            <select name="ar_collections_main" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="ar_collections_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="ar_collections_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="ar_collections_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>AR Ageing</label>
-                            <select name="ar_ageing">
-                                <option value="">Select...</option>
+
+                        <!-- Field: Cashflow Statement/Forecast -->
+                        <div class="field-with-subfields">
+                            <label>Cashflow Statement/Forecast</label>
+                            <select name="cashflow_reporting" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="cashflow_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="cashflow_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="cashflow_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>AP Ageing</label>
-                            <select name="ap_ageing">
-                                <option value="">Select...</option>
+
+                        <!-- Field: Tender Tracking & Win/Loss Reporting -->
+                        <div class="field-with-subfields">
+                            <label>Tender Tracking & Win/Loss Reporting</label>
+                            <select name="tender_tracking_main" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="tender_tracking_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="tender_tracking_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="tender_tracking_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+
+                        <!-- Field: Monthly Project-Level Profitability -->
+                        <div class="field-with-subfields">
+                            <label>Monthly Project-Level Profitability</label>
+                            <select name="profitability_reporting" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="yes">Yes</option>
+                                <option value="partial">Partial</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="profitability_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="profitability_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="profitability_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field: Project Progress Summary and Cost Tracking -->
+                        <div class="field-with-subfields">
+                            <label>Project Progress Summary and Cost Tracking</label>
+                            <select name="mis_exists" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="yes">Yes</option>
+                                <option value="partial">Partial</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="mis_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="mis_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="mis_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field: AP Expense Analytics & Subcontractor Management & Payments -->
+                        <div class="field-with-subfields">
+                            <label>AP Expense Analytics & Subcontractor Management & Payments</label>
+                            <select name="ap_expense_main" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="yes">Yes</option>
+                                <option value="partial">Partial</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="ap_expense_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="ap_expense_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="ap_expense_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field: Inventory/Stores Summary -->
+                        <div class="field-with-subfields">
                             <label>Inventory/Stores Summary</label>
-                            <select name="inventory_summary">
-                                <option value="">Select...</option>
+                            <select name="inventory_summary" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="inventory_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="inventory_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="inventory_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+
+                        <!-- Field: Equipment Utilisation Reporting -->
+                        <div class="field-with-subfields">
                             <label>Equipment Utilisation Reporting</label>
-                            <select name="equipment_reporting">
-                                <option value="">Select...</option>
+                            <select name="equipment_reporting" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="equipment_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="equipment_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="equipment_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+
+                        <!-- Field: HR Headcount/Payroll Summary -->
+                        <div class="field-with-subfields">
                             <label>HR Headcount/Payroll Summary</label>
-                            <select name="hr_summary">
-                                <option value="">Select...</option>
+                            <select name="hr_summary" required>
+                                <option value="" disabled selected hidden>Whether Maintained?</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Compliance Trackers (GST/TDS)</label>
-                            <select name="compliance_trackers">
-                                <option value="">Select...</option>
-                                <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>MIS Preparation Effort and Time Taken</label>
-                            <textarea name="mis_effort" placeholder="Describe time, resources, and effort..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Review Cadence and Decision Forums</label>
-                            <textarea name="review_cadence" placeholder="e.g., Weekly project review, Monthly board review..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Bottlenecks/Hindrance Tracking Mechanism</label>
-                            <textarea name="bottleneck_tracking" placeholder="Describe how issues are tracked..."></textarea>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">How is this process maintained?</label>
+                                    <select name="hr_maintained">
+                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="automated">Automated</option>
+                                        <option value="hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">What is the primary data source, and what are the data update and report review frequencies?</label>
+                                    <textarea name="hr_source" placeholder="e.g., Tally, Daily; Excel, Weekly"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sub-field-label">How are bottlenecks or issues tracked?</label>
+                                    <textarea name="hr_issues" placeholder="Describe the tracking mechanism..."></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section C: Data Location -->
+                <!-- Section C: Systems, Tools & Data Management -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">C</span>
-                        Data Location & Single Source of Truth
+                        Systems, Tools & Data Management
                     </h2>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Tendering Data Location</label>
-                            <input type="text" name="tender_data_location" placeholder="e.g., Excel, Emergent AI, SharePoint">
+                            <label>What CRM or lead management system is used?</label>
+                            <input type="text" name="crm_system" placeholder="e.g., Salesforce, Zoho, HubSpot, Excel, None">
                         </div>
                         <div class="form-group">
-                            <label>Project Progress Data Location</label>
-                            <input type="text" name="progress_data_location" placeholder="e.g., MS Project, Excel">
+                            <label>Which tool is used for project planning and scheduling?</label>
+                            <input type="text" name="planning_tools" placeholder="e.g., MS Project, Primavera, Excel">
                         </div>
                         <div class="form-group">
-                            <label>Sales/Billing Data Location</label>
-                            <input type="text" name="billing_data_location" placeholder="e.g., Tally, ERP">
+                            <label>How is site progress captured?</label>
+                            <input type="text" name="progress_tools" placeholder="e.g., Mobile app, Excel, Manual">
                         </div>
                         <div class="form-group">
-                            <label>Financials/P&L Data Location</label>
-                            <input type="text" name="financial_data_location" placeholder="e.g., Tally, Excel">
+                            <label>Where is consolidated project progress data stored?</label>
+                            <input type="text" name="progress_data_location" placeholder="e.g., ERP, Excel, SharePoint">
                         </div>
                         <div class="form-group">
-                            <label>Cashflow and Banking Data Location</label>
-                            <input type="text" name="cashflow_data_location" placeholder="e.g., Excel, Banking portal">
+                            <label>Which system is used for procurement and purchase management?</label>
+                            <input type="text" name="procurement_systems" placeholder="e.g., SAP, ERP, Custom system, Excel">
                         </div>
                         <div class="form-group">
-                            <label>AR/AP Data Location</label>
-                            <input type="text" name="ar_ap_data_location" placeholder="e.g., Tally, Excel">
+                            <label>How is payroll processed?</label>
+                            <input type="text" name="payroll_systems" placeholder="e.g., HRMS-integrated, Tally, Excel">
                         </div>
                         <div class="form-group">
-                            <label>Inventory/Stores Data Location</label>
-                            <input type="text" name="inventory_data_location" placeholder="e.g., Excel, Custom software">
+                            <label>What HRMS or attendance system is in place?</label>
+                            <input type="text" name="hrms_systems" placeholder="e.g., Keka, Greythr, Darwinbox, Excel">
+                        </div>
+                        <div class="form-group">
+                            <label>Which document management system is used?</label>
+                            <input type="text" name="doc_management" placeholder="e.g., SharePoint, Google Drive, Local folders">
+                        </div>
+                        <div class="form-group">
+                            <label>Where are files stored and shared?</label>
+                            <input type="text" name="file_storage" placeholder="e.g., Google Drive, OneDrive, Server">
+                        </div>
+                        <div class="form-group">
+                            <label>What platform is used for official email?</label>
+                            <input type="text" name="email_platform" placeholder="e.g., Gmail, Outlook">
+                        </div>
+                        <div class="form-group">
+                            <label>Which tools are used for internal communication?</label>
+                            <input type="text" name="communication_platform" placeholder="e.g., Teams, Slack, WhatsApp">
+                        </div>
+                        <div class="form-group">
+                            <label>What tools are used for video conferencing?</label>
+                            <input type="text" name="video_tools" placeholder="e.g., Zoom, Google Meet, Teams">
+                        </div>
+                        <div class="form-group">
+                            <label>Which tools are used for management reporting or MIS?</label>
+                            <input type="text" name="mis_tools" placeholder="e.g., Excel, Power BI, ERP dashboards">
+                        </div>
+                        <div class="form-group">
+                            <label>Are there any other business-critical systems?</label>
+                            <input type="text" placeholder="Please specify...">
                         </div>
                     </div>
                 </div>
 
-                <!-- Section D: Tendering Readiness -->
+                <!-- Section D: Master Data Availability & Ownership -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">D</span>
-                        Tendering (Bid Wins/Loss) Readiness
+                        Master Data Availability & Ownership
                     </h2>
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label>Usage of Emergent AI for Tendering</label>
-                            <select name="emergent_ai_usage">
-                                <option value="">Select...</option>
+                        <!-- Master: Customer Master -->
+                        <div class="field-with-subfields">
+                            <label>Customer Master</label>
+                            <select name="customer_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
-                                <option value="planned">Planned</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="customer_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Consolidated Tender Register Exists</label>
-                            <select name="tender_register">
-                                <option value="">Select...</option>
+
+                        <!-- Master: Sub Contractor Master -->
+                        <div class="field-with-subfields">
+                            <label>Sub Contractor Master</label>
+                            <select name="subcontractor_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
                                 <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="subcontractor_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Bid Data Export Capability</label>
-                            <input type="text" name="bid_export" placeholder="e.g., Excel, CSV, PDF">
-                        </div>
-                        <div class="form-group">
-                            <label>Structured Tender Master Data Capture</label>
-                            <select name="tender_master_data">
-                                <option value="">Select...</option>
+
+                        <!-- Master: Employee Master -->
+                        <div class="field-with-subfields">
+                            <label>Employee Master</label>
+                            <select name="employee_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
                                 <option value="yes">Yes</option>
-                                <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="employee_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group full-width">
-                            <label>Win/Loss Reason Tracking Maturity</label>
-                            <textarea name="win_loss_tracking" placeholder="Describe how win/loss reasons are captured and analyzed..."></textarea>
+
+                        <!-- Master: Equipment Master -->
+                        <div class="field-with-subfields">
+                            <label>Equipment Master</label>
+                            <select name="equipment_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="equipment_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group full-width">
-                            <label>Bid Go/No-Go Approval Process</label>
-                            <textarea name="bid_approval" placeholder="Describe the approval workflow..."></textarea>
+                        <!-- Master: Equipment Master -->
+                        <div class="field-with-subfields">
+                            <label>Item / Material Master</label>
+                            <select name="equipment_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="equipment_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group full-width">
-                            <label>Pricing Approval Levels</label>
-                            <textarea name="pricing_approval" placeholder="e.g., <10Cr: PM, 10-50Cr: Director, >50Cr: Board"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Estimate Version Control Mechanism</label>
-                            <textarea name="estimate_version" placeholder="How are estimate versions tracked?"></textarea>
+
+                        <!-- Master: Project Stage Master -->
+                        <div class="field-with-subfields">
+                            <label>Project Stage Master</label>
+                            <select name="project_stage_master_maintained" required>
+                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <div class="sub-fields-grid">
+                                <div class="form-group">
+                                    <label class="sub-field-label">Who is the owner of this Master?</label>
+                                    <input type="text" name="project_stage_master_owner" placeholder="Enter owner name/department...">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section E: Project Progress & Profitability -->
+                <!-- Section E: Tendering Readiness -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">E</span>
+                        Tendering (Bid Wins/Loss) Readiness
+                    </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> Based on our discussion, you are exploring the Tendering and Contracts App via Emergent. Please outline the current preparation process by addressing the questions below.
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>What inputs are provided to Emergent to create the App?</label>
+                            <textarea name="emergent_inputs" placeholder="Describe the inputs provided to Emergent..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>How will different tender formats be handled and consolidated into a Single Emergent App?</label>
+                            <textarea name="emergent_inputs" placeholder="Describe how different formats will be standardised..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>How is raw data brought into Emergent (upload, integration, or manual entry)?</label>
+                            <textarea name="data_import_method" placeholder="Describe the data import method..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>How is the App layout and visualization designed?</label>
+                            <textarea name="app_design" placeholder="Describe the app layout and visualization design..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>How is data refreshed once the App is live?</label>
+                            <textarea name="data_refresh" placeholder="Describe the data refresh mechanism..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>What are the pricing approval levels for the tenders submitted?</label>
+                            <textarea name="pricing_approval_levels" placeholder="e.g., <10Cr: PM, 10-50Cr: Director, >50Cr: Board"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section F: Project Progress & Profitability -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">F</span>
                         Project Progress, Cost & Profitability Visibility
                     </h2>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Project Baselines Available (BOQ, Budget, Timeline)</label>
                             <select name="project_baselines">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes, All</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -726,7 +1086,7 @@
                         <div class="form-group">
                             <label>Frequency of Site-Level Reporting</label>
                             <select name="site_reporting_frequency">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Daily, Weekly, Monthly</option>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="biweekly">Bi-weekly</option>
@@ -736,7 +1096,7 @@
                         <div class="form-group">
                             <label>Structured Labour Data Capture from Sites</label>
                             <select name="labour_data_capture">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -745,7 +1105,7 @@
                         <div class="form-group">
                             <label>Structured Material Receipt/Consumption</label>
                             <select name="material_tracking">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -754,7 +1114,7 @@
                         <div class="form-group">
                             <label>Subcontractor Billing & RA Bill Tracking</label>
                             <select name="subcontractor_tracking">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -763,7 +1123,7 @@
                         <div class="form-group">
                             <label>Plant & Machinery Deployment Tracking</label>
                             <select name="plant_tracking">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -772,7 +1132,7 @@
                         <div class="form-group">
                             <label>Hindrance/Delay Logging Mechanism</label>
                             <select name="hindrance_logging">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -781,7 +1141,7 @@
                         <div class="form-group">
                             <label>Variation Orders/Extra Items Register</label>
                             <select name="variation_register">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -790,7 +1150,7 @@
                         <div class="form-group">
                             <label>Site Cash & Expense Registers</label>
                             <select name="site_cash_register">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -799,7 +1159,7 @@
                         <div class="form-group">
                             <label>Cost Classification Tracked Project-wise</label>
                             <select name="cost_classification">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -808,107 +1168,19 @@
                         <div class="form-group">
                             <label>Planned vs Actual Milestone Tracking</label>
                             <select name="milestone_tracking">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
                             </select>
                         </div>
-                        <div class="form-group full-width">
-                            <label>Monthly Project-Level Profitability Preparation</label>
-                            <textarea name="profitability_prep" placeholder="Describe the process and frequency..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Components Included in Project Profitability</label>
-                            <textarea name="profitability_components" placeholder="e.g., Direct costs, indirect allocation, overheads..."></textarea>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Section F: Systems & Applications -->
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-icon">F</span>
-                        Systems & Applications Used
-                    </h2>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>CRM/Lead Management System</label>
-                            <input type="text" name="crm_system" placeholder="e.g., Salesforce, Zoho, None">
-                        </div>
-                        <div class="form-group">
-                            <label>Tendering Systems and Tools</label>
-                            <input type="text" name="tendering_tools" placeholder="e.g., Emergent AI, Excel">
-                        </div>
-                        <div class="form-group">
-                            <label>Project Planning & Scheduling Tools</label>
-                            <input type="text" name="planning_tools" placeholder="e.g., MS Project, Primavera">
-                        </div>
-                        <div class="form-group">
-                            <label>Site Progress Capture Tools</label>
-                            <input type="text" name="progress_tools" placeholder="e.g., Mobile app, Excel">
-                        </div>
-                        <div class="form-group">
-                            <label>Procurement Systems</label>
-                            <input type="text" name="procurement_systems" placeholder="e.g., SAP, Custom system">
-                        </div>
-                        <div class="form-group">
-                            <label>Inventory/Stores Systems</label>
-                            <input type="text" name="inventory_systems" placeholder="e.g., Tally, Excel">
-                        </div>
-                        <div class="form-group">
-                            <label>HRMS/Attendance Systems</label>
-                            <input type="text" name="hrms_systems" placeholder="e.g., Keka, Greythr, Excel">
-                        </div>
-                        <div class="form-group">
-                            <label>Payroll Systems</label>
-                            <input type="text" name="payroll_systems" placeholder="e.g., Integrated with HRMS, Tally">
-                        </div>
-                        <div class="form-group">
-                            <label>Project Billing/Invoicing Systems</label>
-                            <input type="text" name="billing_systems" placeholder="e.g., Tally, ERP">
-                        </div>
-                        <div class="form-group">
-                            <label>Document Management Approach</label>
-                            <input type="text" name="doc_management" placeholder="e.g., SharePoint, Google Drive">
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Other Key Systems in Use</label>
-                            <textarea name="other_systems" placeholder="List any other important systems..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section G: Workspace & Collaboration -->
+                <!-- Section G: Accounting & Financial Systems -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">G</span>
-                        Workspace & Collaboration Tools
-                    </h2>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Primary Email Platform</label>
-                            <input type="text" name="email_platform" placeholder="e.g., Gmail, Outlook">
-                        </div>
-                        <div class="form-group">
-                            <label>File Storage & Sharing</label>
-                            <input type="text" name="file_storage" placeholder="e.g., Google Drive, OneDrive">
-                        </div>
-                        <div class="form-group">
-                            <label>Communication Platform</label>
-                            <input type="text" name="communication_platform" placeholder="e.g., Slack, Teams, WhatsApp">
-                        </div>
-                        <div class="form-group">
-                            <label>Video Conferencing Tools</label>
-                            <input type="text" name="video_tools" placeholder="e.g., Zoom, Google Meet">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section H: Accounting & Financial Systems -->
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-icon">H</span>
                         Accounting & Financial Systems
                     </h2>
                     <div class="form-grid">
@@ -927,7 +1199,7 @@
                         <div class="form-group">
                             <label>Banking Integration Status</label>
                             <select name="banking_integration">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Yes, Manual, No</option>
                                 <option value="yes">Yes, Integrated</option>
                                 <option value="manual">Manual Import</option>
                                 <option value="no">No Integration</option>
@@ -936,7 +1208,7 @@
                         <div class="form-group">
                             <label>GST Filing Status</label>
                             <select name="gst_filing">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Compliant, Partial, Issues</option>
                                 <option value="compliant">Fully Compliant</option>
                                 <option value="partial">Partially Compliant</option>
                                 <option value="issues">Has Issues</option>
@@ -945,38 +1217,30 @@
                         <div class="form-group">
                             <label>TDS Compliance Status</label>
                             <select name="tds_compliance">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Compliant, Partial, Issues</option>
                                 <option value="compliant">Fully Compliant</option>
                                 <option value="partial">Partially Compliant</option>
                                 <option value="issues">Has Issues</option>
                             </select>
                         </div>
-                        <div class="form-group full-width">
-                            <label>Chart of Accounts Structure</label>
-                            <textarea name="coa_structure" placeholder="Describe your chart of accounts setup..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Month-End Close Timeline</label>
-                            <textarea name="month_end_timeline" placeholder="How many days after month-end are books closed?"></textarea>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Section I: Integration & Data Flow -->
+                <!-- Section H: Integration & Data Flow -->
                 <div class="section">
                     <h2 class="section-title">
-                        <span class="section-icon">I</span>
+                        <span class="section-icon">H</span>
                         Integration & Data Flow
                     </h2>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Systems Currently Integrated</label>
-                            <textarea name="integrated_systems" placeholder="List systems that are integrated with each other..."></textarea>
+                            <input type="text" placeholder="List systems that are integrated with each other...">
                         </div>
                         <div class="form-group">
                             <label>Primary Integration Method</label>
                             <select name="integration_method">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., API, File-based, Manual, Mixed</option>
                                 <option value="api">API-based</option>
                                 <option value="file">File-based (Excel, CSV)</option>
                                 <option value="manual">Manual Entry</option>
@@ -986,7 +1250,7 @@
                         <div class="form-group">
                             <label>Data Import/Export Frequency</label>
                             <select name="data_frequency">
-                                <option value="">Select...</option>
+                                <option value="" disabled selected hidden>e.g., Real-time, Daily, Weekly, Monthly</option>
                                 <option value="realtime">Real-time</option>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
@@ -997,13 +1261,53 @@
                             <label>Master Data Management Approach</label>
                             <input type="text" name="mdm_approach" placeholder="e.g., Centralized, Distributed, None">
                         </div>
-                        <div class="form-group full-width">
+                        <div class="form-group">
                             <label>Data Quality Issues Faced</label>
-                            <textarea name="data_quality_issues" placeholder="Describe common data quality problems..."></textarea>
+                            <input type="text" placeholder="Describe common data quality problems...">
+                        </div>
+                        <div class="form-group">
+                            <label>Data Reconciliation Process</label>
+                            <input type="text" placeholder="How do you reconcile data between systems?">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section I: Future Vision & Priorities -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">I</span>
+                        Future Vision & Priorities
+                    </h2>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Business Goals for Next 12-24 Months</label>
+                            <textarea name="business_goals" placeholder="What are your growth targets and strategic priorities?"></textarea>
                         </div>
                         <div class="form-group full-width">
-                            <label>Data Reconciliation Process</label>
-                            <textarea name="data_reconciliation" placeholder="How do you reconcile data between systems?"></textarea>
+                            <label>Desired Process Improvements</label>
+                            <textarea name="desired_improvements" placeholder="What processes do you want to improve or automate?"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Technology Investment Priorities</label>
+                            <textarea name="tech_priorities" placeholder="What technology areas are you planning to invest in?"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Expected Timeline for Solution Implementation</label>
+                            <select name="implementation_timeline">
+                                <option value="" disabled selected hidden>e.g., Immediate, Short-term, Medium-term, Long-term</option>
+                                <option value="immediate">Immediate (1-3 months)</option>
+                                <option value="short">Short-term (3-6 months)</option>
+                                <option value="medium">Medium-term (6-12 months)</option>
+                                <option value="long">Long-term (12+ months)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Budget Range for Technology Investment</label>
+                            <input type="text" name="budget_range" placeholder="e.g., 10-20 Lakhs">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Success Metrics & KPIs You Care About</label>
+                            <textarea name="success_metrics" placeholder="How will you measure success of new systems/processes?"></textarea>
                         </div>
                     </div>
                 </div>
@@ -1017,7 +1321,7 @@
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>Top 3 Current Pain Points</label>
-                            <textarea name="top_pain_points" placeholder="List your top 3 operational or system-related challenges..." style="min-height: 90px;"></textarea>
+                            <textarea name="top_pain_points" placeholder="List your top 3 operational or system-related challenges..."></textarea>
                         </div>
                         <div class="form-group full-width">
                             <label>Manual Processes Consuming Most Time</label>
@@ -1038,116 +1342,131 @@
                     </div>
                 </div>
 
-                <!-- Section K: Future Vision & Priorities -->
+                <!-- Section K: Optional Attachments (WITH FILE UPLOADS) -->
                 <div class="section">
                     <h2 class="section-title">
                         <span class="section-icon">K</span>
-                        Future Vision & Priorities
-                    </h2>
-                    <div class="form-grid">
-                        <div class="form-group full-width">
-                            <label>Business Goals for Next 12-24 Months</label>
-                            <textarea name="business_goals" placeholder="What are your growth targets and strategic priorities?"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Desired Process Improvements</label>
-                            <textarea name="desired_improvements" placeholder="What processes do you want to improve or automate?"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Technology Investment Priorities</label>
-                            <textarea name="tech_priorities" placeholder="What technology areas are you planning to invest in?"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Expected Timeline for Solution Implementation</label>
-                            <select name="implementation_timeline">
-                                <option value="">Select...</option>
-                                <option value="immediate">Immediate (1-3 months)</option>
-                                <option value="short">Short-term (3-6 months)</option>
-                                <option value="medium">Medium-term (6-12 months)</option>
-                                <option value="long">Long-term (12+ months)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Budget Range for Technology Investment</label>
-                            <input type="text" name="budget_range" placeholder="e.g., 10-20 Lakhs">
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Success Metrics & KPIs You Care About</label>
-                            <textarea name="success_metrics" placeholder="How will you measure success of new systems/processes?"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section L: Optional Attachments -->
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-icon">L</span>
                         Optional Attachments & Reference Material
                     </h2>
                     <div class="form-grid">
+                        <!-- Field 1: MIS Pack -->
                         <div class="form-group">
-                            <label>Current MIS Pack Available</label>
-                            <select name="attachment_mis">
-                                <option value="">Select...</option>
+                            <label>1. Current MIS Pack Available</label>
+                            <select name="attachment_mis" class="file-trigger" data-target="mis_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="mis_files">
+                                Upload MIS Pack files:
+                                <input type="file" name="attachment_mis_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 2: Tender Register -->
                         <div class="form-group">
-                            <label>Tender Register/Bid Tracker Samples</label>
-                            <select name="attachment_tender">
-                                <option value="">Select...</option>
+                            <label>2. Tender Register/Bid Tracker Samples</label>
+                            <select name="attachment_tender" class="file-trigger" data-target="tender_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="tender_files">
+                                Upload Tender files:
+                                <input type="file" name="attachment_tender_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 3: Project Baseline -->
                         <div class="form-group">
-                            <label>Project Baseline Documents</label>
-                            <select name="attachment_baseline">
-                                <option value="">Select...</option>
+                            <label>3. Project Baseline Documents</label>
+                            <select name="attachment_baseline" class="file-trigger" data-target="baseline_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="baseline_files">
+                                Upload Baseline files:
+                                <input type="file" name="attachment_baseline_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 4: Site Progress -->
                         <div class="form-group">
-                            <label>Site Progress & Hindrance Logs</label>
-                            <select name="attachment_progress">
-                                <option value="">Select...</option>
+                            <label>4. Site Progress & Hindrance Logs</label>
+                            <select name="attachment_progress" class="file-trigger" data-target="progress_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="progress_files">
+                                Upload Progress files:
+                                <input type="file" name="attachment_progress_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 5: Tally Trial Balance -->
                         <div class="form-group">
-                            <label>Tally Trial Balance/Chart of Accounts</label>
-                            <select name="attachment_tally">
-                                <option value="">Select...</option>
+                            <label>5. Tally Trial Balance/Chart of Accounts</label>
+                            <select name="attachment_tally" class="file-trigger" data-target="tally_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="tally_files">
+                                Upload Tally files:
+                                <input type="file" name="attachment_tally_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 6: AR/AP Ageing -->
                         <div class="form-group">
-                            <label>AR/AP Ageing Reports</label>
-                            <select name="attachment_ageing">
-                                <option value="">Select...</option>
+                            <label>6. AR/AP Ageing Reports</label>
+                            <select name="attachment_ageing" class="file-trigger" data-target="ageing_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="ageing_files">
+                                Upload Ageing files:
+                                <input type="file" name="attachment_ageing_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 7: Inventory Register -->
                         <div class="form-group">
-                            <label>Inventory Register Samples</label>
-                            <select name="attachment_inventory">
-                                <option value="">Select...</option>
+                            <label>7. Inventory Register Samples</label>
+                            <select name="attachment_inventory" class="file-trigger" data-target="inventory_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="inventory_files">
+                                Upload Inventory files:
+                                <input type="file" name="attachment_inventory_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
+
+                        <!-- Field 8: ERP Screenshots -->
                         <div class="form-group">
-                            <label>ERP Screenshots or Configuration Reports</label>
-                            <select name="attachment_erp">
-                                <option value="">Select...</option>
+                            <label>8. ERP Screenshots or Configuration Reports</label>
+                            <select name="attachment_erp" class="file-trigger" data-target="erp_files">
+                                <option value="" disabled selected hidden>e.g., Yes, No</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
+                            <div class="file-upload-container" id="erp_files">
+                                Upload ERP files:
+                                <input type="file" name="attachment_erp_files" multiple accept="*/*">
+                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1160,7 +1479,14 @@
                     </h2>
                     <div class="form-group full-width">
                         <label>Any Other Comments, Requirements or Concerns</label>
-                        <textarea name="additional_comments" placeholder="Please share any additional information that would be helpful..." style="min-height: 100px;"></textarea>
+                        <textarea name="additional_comments" placeholder="Please share any additional information that would be helpful..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <div class="file-upload-container active">
+                            <label class="file-upload-label">Upload Additional Files (Optional):</label>
+                            <input type="file" name="additional_files" multiple accept="*/*">
+                            <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
+                        </div>
                     </div>
                 </div>
 
@@ -1182,15 +1508,33 @@
     </div>
 
     <script>
+        // Auto-number questions per section (resets numbering per section)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.section').forEach(section => {
+                let counter = 1;
+                const labels = section.querySelectorAll('label:not(.sub-field-label)');
+                labels.forEach(label => {
+                    // Skip labels that are section titles (they are h2.section-title, not label)
+                    // Skip labels that are part of checkbox-group wrappers where the label text may already include HTML
+                    if (label.closest('.section')) {
+                        const text = label.textContent.trim();
+                        if (!/^\d+[\.\)]\s*/.test(text)) {
+                            label.textContent = `${counter}. ${text}`;
+                        }
+                        counter++;
+                    }
+                });
+            });
+        });
+
         // ============================================
         // GOOGLE SHEETS CONFIGURATION
-        // REPLACE THESE VALUES WITH YOUR OWN
         // ============================================
         const GOOGLE_SHEETS_CONFIG = {
             scriptURL: 'https://script.google.com/macros/s/AKfycbws9grRPqYc6_0o2X-9hvCI04xePGQGeWi6vQZN8RHtWatsNs-Se7oiCdAqPM7FP92M/exec',
             sheetName: 'Ellora Discovery Data',
+            driveFolderId: '1Z1OlH59Gnq9eew_mR2CQtb9o6NVlsGCn'
         };
-        // ============================================
 
         const form = document.getElementById('discoveryForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -1199,26 +1543,100 @@
         const modalOverlay = document.getElementById('modalOverlay');
         const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-        // Progress tracking
-        function updateProgress() {
-            const inputs = form.querySelectorAll('input, select, textarea');
-            let filled = 0;
-            inputs.forEach(input => {
-                if (input.type === 'checkbox') {
-                    if (input.checked) filled++;
-                } else if (input.value.trim() !== '') {
-                    filled++;
+        // File upload toggle functionality
+        document.querySelectorAll('.file-trigger').forEach(select => {
+            select.addEventListener('change', function() {
+                const targetId = this.getAttribute('data-target');
+                const fileContainer = document.getElementById(targetId);
+                
+                if (this.value === 'yes') {
+                    fileContainer.classList.add('active');
+                } else {
+                    fileContainer.classList.remove('active');
                 }
             });
-            const percentage = (filled / inputs.length) * 100;
+        });
+
+        // Toggle select color based on selection (show placeholder in grey, selected option in dark)
+        document.querySelectorAll('select').forEach(select => {
+            const updateSelectColor = () => {
+                if (select.value === '') {
+                    select.classList.remove('has-selection');
+                } else {
+                    select.classList.add('has-selection');
+                }
+            };
+
+            // Initial check
+            updateSelectColor();
+
+            // Update on change
+            select.addEventListener('change', updateSelectColor);
+        });
+
+        // File size validation (20MB)
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const maxSize = 20 * 1024 * 1024; // 20MB in bytes
+                const files = this.files;
+                
+                for (let file of files) {
+                    if (file.size > maxSize) {
+                        alert(`File "${file.name}" is too large. Maximum size is 20MB.`);
+                        this.value = ''; // Clear the input
+                        return;
+                    }
+                }
+            });
+        });
+
+        // Progress tracking: only count fields the user interacted with
+        function updateProgress() {
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let counted = 0;
+            let totalCountable = 0;
+
+            inputs.forEach(input => {
+                // Skip elements that shouldn't be part of progress (like hidden inputs if any)
+                if (input.type === 'hidden') return;
+
+                // Only consider inputs that are countable by the form
+                totalCountable++;
+
+                // Only consider this input if the user has interacted with it
+                const touched = input.dataset.touched === 'true';
+                if (!touched) return;
+
+                if (input.type === 'checkbox') {
+                    if (input.checked) counted++;
+                } else if (input.type === 'file') {
+                    if (input.files.length > 0) counted++;
+                } else if (input.value.trim() !== '') {
+                    counted++;
+                }
+            });
+
+            // Avoid division by zero
+            const percentage = totalCountable === 0 ? 0 : Math.round((counted / totalCountable) * 100);
             progressBar.style.width = percentage + '%';
         }
 
-        // Add event listeners to all form inputs
+        // Mark inputs as touched when the user interacts (focus/input/change)
         const allInputs = form.querySelectorAll('input, select, textarea');
         allInputs.forEach(input => {
-            input.addEventListener('change', updateProgress);
-            input.addEventListener('input', updateProgress);
+            // Initialize touched flag
+            input.dataset.touched = 'false';
+
+            const markTouched = () => {
+                if (input.dataset.touched !== 'true') {
+                    input.dataset.touched = 'true';
+                    updateProgress();
+                }
+            };
+
+            input.addEventListener('focus', markTouched, { once: true });
+            input.addEventListener('input', markTouched);
+            input.addEventListener('change', markTouched);
         });
 
         // Show modal function
@@ -1239,16 +1657,10 @@
         // Close modal on overlay click
         modalOverlay.addEventListener('click', hideSuccessModal);
 
-        // Form submission
+        // Form submission (Files will be handled by updated Apps Script)
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Validate script URL is configured
-            if (GOOGLE_SHEETS_CONFIG.scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
-                alert('Please configure your Google Sheets script URL in the code.');
-                return;
-            }
-
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
 
@@ -1259,9 +1671,11 @@
             // Add timestamp
             data.timestamp = new Date().toISOString();
             
-            // Process all form fields
+            // Process all form fields (excluding files for now)
             for (let [key, value] of formData.entries()) {
-                data[key] = value;
+                if (!key.includes('_files')) {
+                    data[key] = value;
+                }
             }
 
             // Handle checkboxes for entities
@@ -1272,6 +1686,9 @@
             if (formData.get('entity_foundation')) data.entities.push('Foundation');
             if (formData.get('entity_neev')) data.entities.push('Neev Ellora Realty');
             data.entities_list = data.entities.join(', ');
+
+            // Get company name for folder creation
+            data.companyName = data.entity_others || 'Unknown_Company';
 
             try {
                 const response = await fetch(GOOGLE_SHEETS_CONFIG.scriptURL, {
@@ -1286,8 +1703,10 @@
                 // Show success modal popup
                 showSuccessModal();
                 
-                // Reset form
+                // Reset form and clear touched flags
                 form.reset();
+                // Clear touched state for all inputs so progress resets
+                form.querySelectorAll('input, select, textarea').forEach(inp => inp.dataset.touched = 'false');
                 updateProgress();
                 
                 // Scroll to top
@@ -1307,8 +1726,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
