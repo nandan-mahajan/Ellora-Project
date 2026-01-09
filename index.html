@@ -1416,127 +1416,87 @@
                         Optional Attachments & Reference Material
                     </h2>
                     <div class="section-note">
-                        <strong>Note:</strong> This section lists optional documents and reference materials that can help provide additional context and validation.
+                        <strong>Note:</strong> <b><i>If you have selected “Yes” in the dropdown, please email it as an attachment.</i></b>
                     </div>
                     <div class="form-grid">
                         <!-- Field 1: MIS Pack -->
                         <div class="form-group">
                             <label>1. Current MIS Pack Available</label>
-                            <select name="attachment_mis" class="file-trigger" data-target="mis_files">
+                            <select name="attachment_mis">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="mis_files">
-                                Upload MIS Pack files:
-                                <input type="file" name="attachment_mis_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 2: Tender Register -->
                         <div class="form-group">
                             <label>2. Tender Register/Bid Tracker Samples</label>
-                            <select name="attachment_tender" class="file-trigger" data-target="tender_files">
+                            <select name="attachment_tender">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="tender_files">
-                                Upload Tender files:
-                                <input type="file" name="attachment_tender_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 3: Project Baseline -->
                         <div class="form-group">
                             <label>3. Project Baseline Documents</label>
-                            <select name="attachment_baseline" class="file-trigger" data-target="baseline_files">
+                            <select name="attachment_baseline">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="baseline_files">
-                                Upload Baseline files:
-                                <input type="file" name="attachment_baseline_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 4: Site Progress -->
                         <div class="form-group">
                             <label>4. Site Progress & Hindrance Logs</label>
-                            <select name="attachment_progress" class="file-trigger" data-target="progress_files">
+                            <select name="attachment_progress">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="progress_files">
-                                Upload Progress files:
-                                <input type="file" name="attachment_progress_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 5: Tally Trial Balance -->
                         <div class="form-group">
                             <label>5. Tally Trial Balance/Chart of Accounts</label>
-                            <select name="attachment_tally" class="file-trigger" data-target="tally_files">
+                            <select name="attachment_tally">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="tally_files">
-                                Upload Tally files:
-                                <input type="file" name="attachment_tally_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 6: AR/AP Ageing -->
                         <div class="form-group">
                             <label>6. AR/AP Ageing Reports</label>
-                            <select name="attachment_ageing" class="file-trigger" data-target="ageing_files">
+                            <select name="attachment_ageing">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="ageing_files">
-                                Upload Ageing files:
-                                <input type="file" name="attachment_ageing_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 7: Inventory Register -->
                         <div class="form-group">
                             <label>7. Inventory Register Samples</label>
-                            <select name="attachment_inventory" class="file-trigger" data-target="inventory_files">
+                            <select name="attachment_inventory">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="inventory_files">
-                                Upload Inventory files:
-                                <input type="file" name="attachment_inventory_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
 
                         <!-- Field 8: ERP Screenshots -->
                         <div class="form-group">
                             <label>8. ERP Screenshots or Configuration Reports</label>
-                            <select name="attachment_erp" class="file-trigger" data-target="erp_files">
+                            <select name="attachment_erp">
                                 <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
-                            <div class="file-upload-container" id="erp_files">
-                                Upload ERP files:
-                                <input type="file" name="attachment_erp_files" multiple accept="*/*">
-                                <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1550,13 +1510,6 @@
                     <div class="form-group full-width">
                         <label>Any Other Comments, Requirements or Concerns</label>
                         <textarea name="additional_comments" placeholder="Please share any additional information that would be helpful..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <div class="file-upload-container active">
-                            Upload Additional Files (Optional):
-                            <input type="file" name="additional_files" multiple accept="*/*">
-                            <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
-                        </div>
                     </div>
                 </div>
 
@@ -1795,4 +1748,6 @@
     </script>
 </body>
 </html>
+
+
 
