@@ -120,9 +120,19 @@
         }
 
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 33px;
             border-left: 3px solid #667eea;
+            padding: 15px;
             padding-left: 15px;
+            border-radius: 4px;
+        }
+
+        .section:nth-child(odd) {
+            background: #FFFAF0;
+        }
+
+        .section:nth-child(even) {
+            background: #EDFFFE;
         }
 
         .section-title {
@@ -227,7 +237,7 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        /* Style dropdown placeholders grey */
+        /* Style [Dropdown] placeholders grey */
         select {
             color: #999; /* grey for placeholder */
         }
@@ -492,6 +502,9 @@
                         <span class="section-icon">A</span>
                         Company Snapshot
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> The information below will help establish a baseline understanding of the company's structure, scale, and operational presence. Please use the latest or approximate figures.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>Entities in Scope</label>
@@ -553,12 +566,15 @@
                         <span class="section-icon">B</span>
                         Current Reporting Pack & Review Mechanism
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> To assess the maturity and effectiveness of existing reports, please share how each report is currently maintained, reviewed, and monitored, including data sources and bottleneck tracking mechanisms.
+                    </div>
                     <div class="form-grid">
                         <!-- Field: Sales/Billing Summary -->
                         <div class="field-with-subfields">
                             <label>Sales/Billing Summary</label>
                             <select name="billing_summary" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -567,7 +583,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="billing_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -588,7 +604,7 @@
                         <div class="field-with-subfields">
                             <label>Collections, Receivables & AR Ageing</label>
                             <select name="ar_collections_main" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -597,7 +613,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="ar_collections_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -618,7 +634,7 @@
                         <div class="field-with-subfields">
                             <label>Cashflow Statement/Forecast</label>
                             <select name="cashflow_reporting" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -627,7 +643,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="cashflow_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -648,7 +664,7 @@
                         <div class="field-with-subfields">
                             <label>Tender Tracking & Win/Loss Reporting</label>
                             <select name="tender_tracking_main" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -657,7 +673,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="tender_tracking_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -678,7 +694,7 @@
                         <div class="field-with-subfields">
                             <label>Monthly Project-Level Profitability</label>
                             <select name="profitability_reporting" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -687,7 +703,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="profitability_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -708,7 +724,7 @@
                         <div class="field-with-subfields">
                             <label>Project Progress Summary and Cost Tracking</label>
                             <select name="mis_exists" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -717,7 +733,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="mis_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -738,7 +754,7 @@
                         <div class="field-with-subfields">
                             <label>AP Expense Analytics & Subcontractor Management & Payments</label>
                             <select name="ap_expense_main" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -747,7 +763,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="ap_expense_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -768,7 +784,7 @@
                         <div class="field-with-subfields">
                             <label>Inventory/Stores Summary</label>
                             <select name="inventory_summary" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -777,7 +793,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="inventory_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -798,7 +814,7 @@
                         <div class="field-with-subfields">
                             <label>Equipment Utilisation Reporting</label>
                             <select name="equipment_reporting" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -807,7 +823,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="equipment_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -828,7 +844,7 @@
                         <div class="field-with-subfields">
                             <label>HR Headcount/Payroll Summary</label>
                             <select name="hr_summary" required>
-                                <option value="" disabled selected hidden>Whether Maintained?</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -837,7 +853,7 @@
                                 <div class="form-group">
                                     <label class="sub-field-label">How is this process maintained?</label>
                                     <select name="hr_maintained">
-                                        <option value="" disabled selected hidden>e.g., Manual, Automated, Hybrid</option>
+                                        <option value="" disabled selected hidden>[Dropdown]</option>
                                         <option value="manual">Manual</option>
                                         <option value="automated">Automated</option>
                                         <option value="hybrid">Hybrid</option>
@@ -862,6 +878,9 @@
                         <span class="section-icon">C</span>
                         Systems, Tools & Data Management
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> To assess the current technology landscape, please outline the systems and tools used across key functions, including data management, communication, and reporting platforms.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>What CRM or lead management system is used?</label>
@@ -928,12 +947,15 @@
                         <span class="section-icon">D</span>
                         Master Data Availability & Ownership
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section outlines the availability of key master data and the responsibility for its ownership and maintenance.
+                    </div>
                     <div class="form-grid">
                         <!-- Master: Customer Master -->
                         <div class="field-with-subfields">
                             <label>Customer Master</label>
                             <select name="customer_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -949,7 +971,7 @@
                         <div class="field-with-subfields">
                             <label>Sub Contractor Master</label>
                             <select name="subcontractor_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -965,7 +987,7 @@
                         <div class="field-with-subfields">
                             <label>Employee Master</label>
                             <select name="employee_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -981,7 +1003,7 @@
                         <div class="field-with-subfields">
                             <label>Equipment Master</label>
                             <select name="equipment_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -996,7 +1018,7 @@
                         <div class="field-with-subfields">
                             <label>Item / Material Master</label>
                             <select name="equipment_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -1012,7 +1034,7 @@
                         <div class="field-with-subfields">
                             <label>Project Stage Master</label>
                             <select name="project_stage_master_maintained" required>
-                                <option value="" disabled selected hidden>Yes, No...</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -1069,11 +1091,14 @@
                         <span class="section-icon">F</span>
                         Project Progress, Cost & Profitability Visibility
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section assesses how project progress, costs, and profitability are tracked and monitored across sites and projects.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Project Baselines Available (BOQ, Budget, Timeline)</label>
                             <select name="project_baselines">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, All</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1086,7 +1111,7 @@
                         <div class="form-group">
                             <label>Frequency of Site-Level Reporting</label>
                             <select name="site_reporting_frequency">
-                                <option value="" disabled selected hidden>e.g., Daily, Weekly, Monthly</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="biweekly">Bi-weekly</option>
@@ -1096,7 +1121,7 @@
                         <div class="form-group">
                             <label>Structured Labour Data Capture from Sites</label>
                             <select name="labour_data_capture">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1105,7 +1130,7 @@
                         <div class="form-group">
                             <label>Structured Material Receipt/Consumption</label>
                             <select name="material_tracking">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1114,7 +1139,7 @@
                         <div class="form-group">
                             <label>Subcontractor Billing & RA Bill Tracking</label>
                             <select name="subcontractor_tracking">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1123,7 +1148,7 @@
                         <div class="form-group">
                             <label>Plant & Machinery Deployment Tracking</label>
                             <select name="plant_tracking">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1132,7 +1157,7 @@
                         <div class="form-group">
                             <label>Hindrance/Delay Logging Mechanism</label>
                             <select name="hindrance_logging">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1141,7 +1166,7 @@
                         <div class="form-group">
                             <label>Variation Orders/Extra Items Register</label>
                             <select name="variation_register">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1150,7 +1175,7 @@
                         <div class="form-group">
                             <label>Site Cash & Expense Registers</label>
                             <select name="site_cash_register">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1159,7 +1184,7 @@
                         <div class="form-group">
                             <label>Cost Classification Tracked Project-wise</label>
                             <select name="cost_classification">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1168,7 +1193,7 @@
                         <div class="form-group">
                             <label>Planned vs Actual Milestone Tracking</label>
                             <select name="milestone_tracking">
-                                <option value="" disabled selected hidden>e.g., Yes, No, Partial</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes</option>
                                 <option value="partial">Partial</option>
                                 <option value="no">No</option>
@@ -1183,6 +1208,9 @@
                         <span class="section-icon">G</span>
                         Accounting & Financial Systems
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section captures the accounting systems in use and the current status of key financial integrations and compliances.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Primary Accounting Software</label>
@@ -1199,7 +1227,7 @@
                         <div class="form-group">
                             <label>Banking Integration Status</label>
                             <select name="banking_integration">
-                                <option value="" disabled selected hidden>e.g., Yes, Manual, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Integrated</option>
                                 <option value="manual">Manual Import</option>
                                 <option value="no">No Integration</option>
@@ -1208,7 +1236,7 @@
                         <div class="form-group">
                             <label>GST Filing Status</label>
                             <select name="gst_filing">
-                                <option value="" disabled selected hidden>e.g., Compliant, Partial, Issues</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="compliant">Fully Compliant</option>
                                 <option value="partial">Partially Compliant</option>
                                 <option value="issues">Has Issues</option>
@@ -1217,7 +1245,7 @@
                         <div class="form-group">
                             <label>TDS Compliance Status</label>
                             <select name="tds_compliance">
-                                <option value="" disabled selected hidden>e.g., Compliant, Partial, Issues</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="compliant">Fully Compliant</option>
                                 <option value="partial">Partially Compliant</option>
                                 <option value="issues">Has Issues</option>
@@ -1232,6 +1260,9 @@
                         <span class="section-icon">H</span>
                         Integration & Data Flow
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section outlines how systems are integrated, how data flows between them, and how data quality is managed.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Systems Currently Integrated</label>
@@ -1240,7 +1271,7 @@
                         <div class="form-group">
                             <label>Primary Integration Method</label>
                             <select name="integration_method">
-                                <option value="" disabled selected hidden>e.g., API, File-based, Manual, Mixed</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="api">API-based</option>
                                 <option value="file">File-based (Excel, CSV)</option>
                                 <option value="manual">Manual Entry</option>
@@ -1250,7 +1281,7 @@
                         <div class="form-group">
                             <label>Data Import/Export Frequency</label>
                             <select name="data_frequency">
-                                <option value="" disabled selected hidden>e.g., Real-time, Daily, Weekly, Monthly</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="realtime">Real-time</option>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
@@ -1278,6 +1309,9 @@
                         <span class="section-icon">I</span>
                         Future Vision & Priorities
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section captures the organisation's future goals, priority improvements, and expectations from upcoming technology initiatives.
+                    </div>
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>Business Goals for Next 12-24 Months</label>
@@ -1294,7 +1328,7 @@
                         <div class="form-group">
                             <label>Expected Timeline for Solution Implementation</label>
                             <select name="implementation_timeline">
-                                <option value="" disabled selected hidden>e.g., Immediate, Short-term, Medium-term, Long-term</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="immediate">Immediate (1-3 months)</option>
                                 <option value="short">Short-term (3-6 months)</option>
                                 <option value="medium">Medium-term (6-12 months)</option>
@@ -1312,48 +1346,21 @@
                     </div>
                 </div>
 
-                <!-- Section J: Pain Points & Challenges -->
-                <div class="section">
-                    <h2 class="section-title">
-                        <span class="section-icon">J</span>
-                        Pain Points & Challenges
-                    </h2>
-                    <div class="form-grid">
-                        <div class="form-group full-width">
-                            <label>Top 3 Current Pain Points</label>
-                            <textarea name="top_pain_points" placeholder="List your top 3 operational or system-related challenges..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Manual Processes Consuming Most Time</label>
-                            <textarea name="manual_processes" placeholder="Which processes are most time-consuming and manual?"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Reports That Take Longest to Prepare</label>
-                            <textarea name="time_consuming_reports" placeholder="Which reports/MIS take the most effort?"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Areas Where You Lack Visibility</label>
-                            <textarea name="lack_visibility" placeholder="Where do you wish you had better insights or data?"></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <label>Collaboration & Communication Challenges</label>
-                            <textarea name="collaboration_challenges" placeholder="Issues with information sharing between teams/sites..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Section K: Optional Attachments (WITH FILE UPLOADS) -->
                 <div class="section">
                     <h2 class="section-title">
-                        <span class="section-icon">K</span>
+                        <span class="section-icon">J</span>
                         Optional Attachments & Reference Material
                     </h2>
+                    <div class="section-note">
+                        <strong>Note:</strong> This section lists optional documents and reference materials that can help provide additional context and validation.
+                    </div>
                     <div class="form-grid">
                         <!-- Field 1: MIS Pack -->
                         <div class="form-group">
                             <label>1. Current MIS Pack Available</label>
                             <select name="attachment_mis" class="file-trigger" data-target="mis_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1368,7 +1375,7 @@
                         <div class="form-group">
                             <label>2. Tender Register/Bid Tracker Samples</label>
                             <select name="attachment_tender" class="file-trigger" data-target="tender_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1383,7 +1390,7 @@
                         <div class="form-group">
                             <label>3. Project Baseline Documents</label>
                             <select name="attachment_baseline" class="file-trigger" data-target="baseline_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1398,7 +1405,7 @@
                         <div class="form-group">
                             <label>4. Site Progress & Hindrance Logs</label>
                             <select name="attachment_progress" class="file-trigger" data-target="progress_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1413,7 +1420,7 @@
                         <div class="form-group">
                             <label>5. Tally Trial Balance/Chart of Accounts</label>
                             <select name="attachment_tally" class="file-trigger" data-target="tally_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1428,7 +1435,7 @@
                         <div class="form-group">
                             <label>6. AR/AP Ageing Reports</label>
                             <select name="attachment_ageing" class="file-trigger" data-target="ageing_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1443,7 +1450,7 @@
                         <div class="form-group">
                             <label>7. Inventory Register Samples</label>
                             <select name="attachment_inventory" class="file-trigger" data-target="inventory_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1458,7 +1465,7 @@
                         <div class="form-group">
                             <label>8. ERP Screenshots or Configuration Reports</label>
                             <select name="attachment_erp" class="file-trigger" data-target="erp_files">
-                                <option value="" disabled selected hidden>e.g., Yes, No</option>
+                                <option value="" disabled selected hidden>[Dropdown]</option>
                                 <option value="yes">Yes, Will Provide</option>
                                 <option value="no">Not Available</option>
                             </select>
@@ -1483,7 +1490,7 @@
                     </div>
                     <div class="form-group full-width">
                         <div class="file-upload-container active">
-                            <label class="file-upload-label">Upload Additional Files (Optional):</label>
+                            Upload Additional Files (Optional):
                             <input type="file" name="additional_files" multiple accept="*/*">
                             <div class="file-info">Max 20MB per file. Multiple files allowed.</div>
                         </div>
@@ -1501,7 +1508,7 @@
     <!-- Success Modal Popup -->
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="modal" id="successModal">
-        <div class="modal-icon">✓</div>
+        <div class="modal-icon">âœ“</div>
         <h2>Response Recorded Successfully!</h2>
         <p>Thank you for completing the comprehensive discovery assessment. Your information has been successfully recorded in our system.</p>
         <button class="modal-btn" id="modalCloseBtn">Close</button>
@@ -1726,5 +1733,3 @@
     </script>
 </body>
 </html>
-
-
