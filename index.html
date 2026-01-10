@@ -1127,7 +1127,7 @@
                         </div>
                         <div class="form-group full-width">
                             <label>How will different tender formats be handled and consolidated into a Single Emergent App?</label>
-                            <textarea name="emergent_inputs" placeholder="Describe how different formats will be standardised..."></textarea>
+                            <textarea name="tender_format_handling" placeholder="Describe how different formats will be standardised..."></textarea>
                         </div>
                         <div class="form-group full-width">
                             <label>How is raw data brought into Emergent (upload, integration, or manual entry)?</label>
@@ -1329,6 +1329,7 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Systems Currently Integrated</label>
+                            <select name="systems_integrated">
                             <input type="text" placeholder="List systems that are integrated with each other...">
                         </div>
                         <div class="form-group">
@@ -1357,11 +1358,11 @@
                         </div>
                         <div class="form-group">
                             <label>Data Quality Issues Faced</label>
-                            <input type="text" placeholder="Describe common data quality problems...">
+                            <input type="text" name="data_quality_issues" placeholder="Describe common data quality problems...">
                         </div>
                         <div class="form-group">
                             <label>Data Reconciliation Process</label>
-                            <input type="text" placeholder="How do you reconcile data between systems?">
+                            <input type="text" name="data_reconciliation" placeholder="How do you reconcile data between systems?">
                         </div>
                     </div>
                 </div>
@@ -1748,6 +1749,7 @@
     </script>
 </body>
 </html>
+
 
 
 
